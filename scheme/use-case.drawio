@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" modified="2023-09-09T06:47:10.996Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.76" etag="lDc-CpvRj1AURcsBbzDz" version="21.7.4" type="device">
+  <diagram name="Страница — 1" id="le7p0q9aY3mp99Ud_EM1">
+    <mxGraphModel dx="1026" dy="477" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-5" value="Подать заявку на регистрацию" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="110" y="440" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-8" value="зарегистрированная &lt;br&gt;организация-заказчик" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="270" width="60" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-10" value="Одобрять/отклонять заявки на регистрацию" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="270" y="440" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-13" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="9x0Fkc03wkMeW-zuDhyd-8" target="9x0Fkc03wkMeW-zuDhyd-14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="360" as="sourcePoint" />
+            <mxPoint x="120" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-14" value="Посмотреть моделей" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="90" y="200" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-15" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="9x0Fkc03wkMeW-zuDhyd-8" target="9x0Fkc03wkMeW-zuDhyd-16" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="360" as="sourcePoint" />
+            <mxPoint x="150" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-16" value="Заключить контракт с моделью" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="250" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-17" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="9x0Fkc03wkMeW-zuDhyd-8" target="9x0Fkc03wkMeW-zuDhyd-18" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="360" as="sourcePoint" />
+            <mxPoint x="160" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-18" value="Добавить мероприятие" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="310" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-20" value="Изменять данные организации&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="277.5" y="360" width="95" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-21" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="414" y="415" width="61" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-24" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="9x0Fkc03wkMeW-zuDhyd-21" target="9x0Fkc03wkMeW-zuDhyd-20" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="430" as="sourcePoint" />
+            <mxPoint x="270" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-25" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="9x0Fkc03wkMeW-zuDhyd-10" target="9x0Fkc03wkMeW-zuDhyd-21" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="430" as="sourcePoint" />
+            <mxPoint x="270" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-26" value="не зарегистрированная&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;организация-заказчик" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="420" width="60" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="9x0Fkc03wkMeW-zuDhyd-27" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="9x0Fkc03wkMeW-zuDhyd-26" target="9x0Fkc03wkMeW-zuDhyd-5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="430" as="sourcePoint" />
+            <mxPoint x="270" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
