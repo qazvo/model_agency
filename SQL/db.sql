@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS models (
     weight INT NOT NULL
 );
 CREATE TABLE IF NOT EXISTS countries (
-    id VARCHAR(3) NOT NULL PRIMARY KEY,
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    shortname VARCHAR(3) NOT NULL,
     name VARCHAR(20) NOT NULL
 );
 CREATE TABLE IF NOT EXISTS customer_organizations (
@@ -15,14 +16,15 @@ CREATE TABLE IF NOT EXISTS customer_organizations (
     name VARCHAR(30) NOT NULL,
     country_id INTEGER REFERENCES countries(id) ON DELETE CASCADE,
     contact_details VARCHAR(30) NOT NULL,
-    inn INT NOT NULL
+    inn INT NOT NULL,
+    checked BOOLEAN NOT NULL
 );
 CREATE TABLE IF NOT EXISTS events (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(30) NOT NULL,
     country_id INTEGER REFERENCES countries(id) ON DELETE CASCADE,
-  	customer_organizations_id INTEGER REFERENCES customer_organizations(id) ON DELETE CASCADE,
-    date  DATE NOT NULL,
+  	customer_organization_id INTEGER REFERENCES customer_organizations(id) ON DELETE CASCADE,
+    date  DATE NOT NULL, 
     time TIME NOT NULL
 );
 CREATE TABLE IF NOT EXISTS contracts(
@@ -35,7 +37,7 @@ CREATE TABLE IF NOT EXISTS accounts_OC(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     login VARCHAR(20) NOT NULL,
     password VARCHAR(30) NOT NULL,
-    customer_organizations_id INTEGER REFERENCES customer_organizations(id) ON DELETE CASCADE
+    customer_organization_id INTEGER REFERENCES customer_organizations(id) ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS administrators(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
