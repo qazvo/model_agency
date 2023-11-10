@@ -1,12 +1,12 @@
 from server.database.db_manager import db_manager
 import server.settings as settings, uvicorn
 from fastapi import FastAPI
-from server.router import routers
+from server.routers import administrators
 from fastapi.responses import RedirectResponse
 
-app = FastAPI(title='model agency')
+app = FastAPI(title='model_agency')
 
-[app.include_router(router) for router in routers]
+app.include_router(administrators)
 
 @app.router.get('/')
 def start_page() -> RedirectResponse:

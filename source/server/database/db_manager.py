@@ -2,7 +2,7 @@ import sqlite3
 import os
 import sys
 
-sys.path.append("C:/Users/DELL/Documents/GitHub/model_agency/server")
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server") ## C:/Users/DELL/Documents/GitHub/model_agency/server
 
 import settings
  

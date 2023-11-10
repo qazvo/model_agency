@@ -6,7 +6,7 @@ class models(BaseModel):
     id : int
     FIO : str
     gender : str
-    phone : str
+    number_phone : str
     height : int
     weight : int
 
