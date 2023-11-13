@@ -1,6 +1,11 @@
-from server.database.db_manager import db_manager
+import sys
 
-from server.models_db import roles
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
+
+from database.db_manager import db_manager
+
+from models_db import roles
 
 def get(role_id: int) -> dict:
     res = db_manager.execute(query="""SELECT * FROM roles WHERE id = ?""", 
@@ -19,11 +24,11 @@ def new(role: roles) -> dict:
                               args=(role.id, role.name, role.permission))
     return res
 
-def update(role_id: int, new_permission: roles.permission) -> dict:
+def update(role: roles) -> dict:
     res = db_manager.execute(query="""UPDATE roles
                                         SET permission = ?
                                         WHERE id = ?""", 
-                              args=(new_permission, role_id))
+                              args=(role.permission, role.id))
     return res
 
 def delete(role_id: int) -> dict:

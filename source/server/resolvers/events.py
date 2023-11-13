@@ -1,6 +1,11 @@
-from server.database.db_manager import db_manager
+import sys
 
-from server.models_db import events
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
+
+from database.db_manager import db_manager
+
+from models_db import events
 
 def get(event_id: int) -> dict:
     res = db_manager.execute(query="""SELECT * FROM events WHERE id = ?""", 
@@ -19,11 +24,11 @@ def new(event: events) -> dict:
                               args=(event.id, event.name, event.country_id, event.customer_organization_id, event.date, event.time))
     return res
 
-def update(event_id: int, new_name: events.name) -> dict:
+def update(event: events) -> dict:
     res = db_manager.execute(query="""UPDATE events
                                         SET name = ?
                                         WHERE id = ?""", 
-                              args=(new_name, event_id))
+                              args=(event.name, event.id))
     return res
 
 def delete(event_id: int) -> dict:

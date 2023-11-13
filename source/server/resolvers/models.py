@@ -1,6 +1,11 @@
-from server.database.db_manager import db_manager
+import sys
 
-from server.models_db import models
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
+
+from database.db_manager import db_manager
+
+from models_db import models
 
 def get(model_id: int) -> dict:
     res = db_manager.execute(query="""SELECT * FROM models WHERE id = ?""", 
@@ -19,11 +24,11 @@ def new(model: models) -> dict:
                               args=(model.id, model.FIO, model.gender, model.number_phone, model.height, model.weight))
     return res
 
-def update(model_id: int, new_number_phone: models.number_phone) -> dict:
+def update(model: models) -> dict:
     res = db_manager.execute(query="""UPDATE models
                                         SET number_phone = ?
                                         WHERE id = ?""", 
-                              args=(new_number_phone, model_id))
+                              args=(model.number_phone, model.id))
     return res
 
 def delete(model_id: int) -> dict:

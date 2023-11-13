@@ -28,8 +28,8 @@ class events(BaseModel):
     name : str 
     country_id : int
     customer_organization_id : int 
-    date : datetime.date
-    time : datetime.time 
+    date : datetime
+    time : datetime
 
 class contracts(BaseModel):
     id : int

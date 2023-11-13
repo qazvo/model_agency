@@ -1,6 +1,11 @@
-from server.database.db_manager import db_manager
+import sys
 
-from server.models_db import countries
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
+
+from database.db_manager import db_manager
+
+from models_db import countries
 
 def get(country_id: int) -> dict:
     res = db_manager.execute(query="""SELECT * FROM countries WHERE id = ?""", 
@@ -19,11 +24,11 @@ def new(country: countries) -> dict:
                               args=(country.id, country.shortname, country.name))
     return res
 
-def update(country_id: int, new_name: countries.name) -> dict:
+def update(country: countries) -> dict:
     res = db_manager.execute(query="""UPDATE countries 
                                         SET name = ?
                                         WHERE id = ?""", 
-                              args=(new_name, country_id))
+                              args=(country.name, country.id))
     return res
 
 def delete(country_id: int) -> dict:

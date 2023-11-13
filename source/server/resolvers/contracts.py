@@ -1,6 +1,11 @@
-from server.database.db_manager import db_manager
+import sys
 
-from server.models_db import contracts
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
+
+from database.db_manager import db_manager
+
+from models_db import contracts
 
 def get(contract_id: int) -> dict:
     res = db_manager.execute(query="""SELECT * FROM contracts WHERE id = ?""", 
@@ -19,11 +24,11 @@ def new(contract: contracts) -> dict:
                               args=(contract.id, contract.event_id, contract.model_id, contract.payment))
     return res
 
-def update(contract_id: int, new_payment: contracts.payment) -> dict:
+def update(contract: contracts) -> dict:
     res = db_manager.execute(query="""UPDATE contracts 
                                         SET payment = ?
                                         WHERE id = ?""", 
-                              args=(new_payment, contract_id))
+                              args=(contract.payment, contract.id))
     return res
 
 def delete(contract_id: int) -> dict:

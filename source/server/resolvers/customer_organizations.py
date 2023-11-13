@@ -1,6 +1,11 @@
-from server.database.db_manager import db_manager
+import sys
 
-from server.models_db import customer_organizations
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
+
+from database.db_manager import db_manager
+
+from models_db import customer_organizations
 
 def get(customer_organization_id: int) -> dict:
     res = db_manager.execute(query="""SELECT * FROM customer_organizations WHERE id = ?""", 
@@ -19,11 +24,11 @@ def new(customer_organization: customer_organizations) -> dict:
                               args=(customer_organization.id, customer_organization.name, customer_organization.country_id, customer_organization.contact_details, customer_organization.inn, customer_organization.confirmed))
     return res
 
-def update(customer_organization_id: int, new_contact_details: customer_organizations.contact_details) -> dict:
+def update(customer_organization: customer_organizations) -> dict:
     res = db_manager.execute(query="""UPDATE customer_organizations 
                                         SET contact_details = ?
                                         WHERE id = ?""", 
-                              args=(new_contact_details, customer_organization_id))
+                              args=(customer_organization.contact_details, customer_organization.id))
     return res
 
 def delete(customer_organization_id: int) -> dict:

@@ -5,8 +5,8 @@ import sys
 sys.path.append("D:/Program/Programing/Projects/model_agency/source")
 sys.path.append("D:/Program/Programing/Projects/model_agency")
 
-from source.server.models_db import roles
-from source.server.resolvers import roles
+from models_db import roles
+from resolvers import roles
 
 
 roles_router = fastapi.APIRouter(prefix='/roles', tags=["Roles"])
@@ -20,13 +20,13 @@ def get_role(role_id: int) -> dict:
 def get_roles() -> dict:
     return roles.get_all()
 
-@roles_router.new(path='/new/{role_id}', response_model=dict)
+@roles_router.new(path='/new', response_model=dict)
 def new_role(role: roles) -> dict:
     return roles.new(role = role)
 
 @roles_router.put(path='/updatePermission/{role_id}', response_model=dict)
-def update_permission(role_id: int, new_permission: roles.permission) -> dict:
-    return roles.get(role_id = role_id, new_permission = new_permission)
+def update_permission(role: roles) -> dict:
+    return roles.get(role = role)
 
 @roles_router.delete(path='/delete/{role_id}', response_model=dict)
 def delete_role(role_id: int) -> dict:

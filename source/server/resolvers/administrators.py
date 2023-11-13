@@ -1,6 +1,11 @@
-from server.database.db_manager import db_manager
+import sys
 
-from server.models_db import administrators
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
+sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
+
+from database.db_manager import db_manager
+
+from models_db import administrators
 
 def get(administrator_id: int) -> dict:
     res = db_manager.execute(query="""SELECT * FROM administrators WHERE id = ?""", 
@@ -14,16 +19,16 @@ def get_all() -> dict:
 
 def new(administrator: administrators) -> dict:
     res = db_manager.execute(query="""INSERT INTO administrators(id, FIO, number_phone) 
-                                       VALUES(?, ?, ?) 
-                                       RETURNING id""", 
+                                       VALUES(?, ?, ?)
+                                        RETURNING id""", 
                               args=(administrator.id, administrator.FIO, administrator.number_phone))
     return res
 
-def update(administrator_id: int, new_number_phone: administrators.number_phone) -> dict:
+def update(administrator: administrators) -> dict:
     res = db_manager.execute(query="""UPDATE administrators 
                                         SET phone_number = ?
                                         WHERE id = ?""", 
-                              args=(new_number_phone, administrator_id))
+                              args=(administrator.id, administrator.number_phone))
     return res
 
 def delete(administrator_id: int) -> dict:
