@@ -32,6 +32,6 @@ def update(customer_organization: customer_organizations) -> dict:
     return res
 
 def delete(customer_organization_id: int) -> dict:
-    res = db_manager.execute(query="""DELETE * FROM customer_organizations WHERE id = ?""", 
+    res = db_manager.execute(query="""DELETE FROM customer_organizations WHERE id = ?""", 
                               args=(customer_organization_id,))
     return res

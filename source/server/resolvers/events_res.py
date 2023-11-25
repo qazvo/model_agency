@@ -18,10 +18,10 @@ def get_all() -> dict:
     return res
 
 def new(event: events) -> dict:
-    res = db_manager.execute(query="""INSERT INTO events(id, name, country_id, customer_organization_id, date, time) 
-                                       VALUES(?, ?, ?, ?, ?, ?) 
+    res = db_manager.execute(query="""INSERT INTO events(id, name, country_id, customer_organization_id, date) 
+                                       VALUES(?, ?, ?, ?, ?) 
                                        RETURNING id""", 
-                              args=(event.id, event.name, event.country_id, event.customer_organization_id, event.date, event.time))
+                              args=(event.id, event.name, event.country_id, event.customer_organization_id, event.date))
     return res
 
 def update(event: events) -> dict:
@@ -32,6 +32,6 @@ def update(event: events) -> dict:
     return res
 
 def delete(event_id: int) -> dict:
-    res = db_manager.execute(query="""DELETE * FROM events WHERE id = ?""", 
+    res = db_manager.execute(query="""DELETE FROM events WHERE id = ?""", 
                               args=(event_id,))
     return res

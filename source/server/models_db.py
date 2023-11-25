@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import date
 from typing import Optional
 
 class models(BaseModel):
@@ -28,8 +28,7 @@ class events(BaseModel):
     name : str 
     country_id : int
     customer_organization_id : int 
-    date : datetime
-    time : datetime
+    date : date
 
 class contracts(BaseModel):
     id : int

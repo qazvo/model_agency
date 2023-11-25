@@ -32,6 +32,6 @@ def update(country: countries) -> dict:
     return res
 
 def delete(country_id: int) -> dict:
-    res = db_manager.execute(query="""DELETE * FROM countries WHERE id = ?""", 
+    res = db_manager.execute(query="""DELETE FROM countries WHERE id = ?""", 
                               args=(country_id,))
     return res

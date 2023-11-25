@@ -32,6 +32,6 @@ def update(user: users) -> dict:
     return res
 
 def delete(user_id: int) -> dict:
-    res = db_manager.execute(query="""DELETE * FROM users WHERE id = ?""", 
+    res = db_manager.execute(query="""DELETE FROM users WHERE id = ?""", 
                               args=(user_id,))
     return res

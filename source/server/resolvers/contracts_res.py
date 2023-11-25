@@ -32,6 +32,6 @@ def update(contract: contracts) -> dict:
     return res
 
 def delete(contract_id: int) -> dict:
-    res = db_manager.execute(query="""DELETE * FROM contracts WHERE id = ?""", 
+    res = db_manager.execute(query="""DELETE FROM contracts WHERE id = ?""", 
                               args=(contract_id,))
     return res

@@ -32,6 +32,6 @@ def update(model: models) -> dict:
     return res
 
 def delete(model_id: int) -> dict:
-    res = db_manager.execute(query="""DELETE * FROM models WHERE id = ?""", 
+    res = db_manager.execute(query="""DELETE FROM models WHERE id = ?""", 
                               args=(model_id,))
     return res

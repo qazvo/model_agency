@@ -32,6 +32,6 @@ def update(role: roles) -> dict:
     return res
 
 def delete(role_id: int) -> dict:
-    res = db_manager.execute(query="""DELETE * FROM roles WHERE id = ?""", 
+    res = db_manager.execute(query="""DELETE FROM roles WHERE id = ?""", 
                               args=(role_id,))
     return res

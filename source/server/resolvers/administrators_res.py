@@ -26,12 +26,12 @@ def new(administrator: administrators) -> dict:
 
 def update(administrator: administrators) -> dict:
     res = db_manager.execute(query="""UPDATE administrators 
-                                        SET phone_number = ?
+                                        SET number_phone = ?
                                         WHERE id = ?""", 
-                              args=(administrator.id, administrator.number_phone))
+                              args=(administrator.number_phone, administrator.id))
     return res
 
 def delete(administrator_id: int) -> dict:
-    res = db_manager.execute(query="""DELETE * FROM administrators WHERE id = ?""", 
+    res = db_manager.execute(query="""DELETE FROM administrators WHERE id = ?""", 
                               args=(administrator_id,))
     return res
