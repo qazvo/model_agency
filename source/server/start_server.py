@@ -1,5 +1,5 @@
 from database.db_manager import db_manager
-import settings as settings
+import settings
 import uvicorn
 from fastapi import FastAPI
 from routers import administrators, contracts, countries, customer_organizations, events, models, roles, users
@@ -19,7 +19,6 @@ app.include_router(users.users_router)
 @app.router.get('/')
 def start_page() -> RedirectResponse:
     return RedirectResponse('/docs')
-
 
 if __name__ == "__main__": 
     uvicorn.run(app='start_server:app', reload=True, host=settings.HOST, port=settings.PORT)

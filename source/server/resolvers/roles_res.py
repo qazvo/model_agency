@@ -1,8 +1,3 @@
-import sys
-
-sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
-sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
-
 from database.db_manager import db_manager
 
 from models_db import roles
@@ -18,10 +13,10 @@ def get_all() -> dict:
     return res
 
 def new(role: roles) -> dict:
-    res = db_manager.execute(query="""INSERT INTO roles(id, name, permission) 
-                                       VALUES(?, ?, ?) 
+    res = db_manager.execute(query="""INSERT INTO roles(name, permission) 
+                                       VALUES(?, ?) 
                                        RETURNING id""", 
-                              args=(role.id, role.name, role.permission))
+                              args=(role.name, role.permission))
     return res
 
 def update(role: roles) -> dict:

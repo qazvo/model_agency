@@ -1,10 +1,7 @@
 import sqlite3
 import os
-import sys
 
-sys.path.append("D:/Program/Programing/Projects/model_agency/source/server") ## C:/Users/DELL/Documents/GitHub/model_agency/server
-
-import settings
+from settings import DB_PATH
  
 class DBManager:
     def __init__(self, default_path: str) -> None:
@@ -17,6 +14,12 @@ class DBManager:
     
     def check_base(self) -> bool:
         return os.path.exists(self.default_path)
+    
+    def create_base(self, script_path: str) -> None:
+        conn, cur = self.connect_to_db()
+        cur.executescript(open(script_path).read())
+        conn.commit()
+        conn.close()
 
     def execute(self, query: str, args: tuple = (), many: bool = False) -> dict:
         conn, cur = self.connect_to_db()
@@ -33,12 +36,5 @@ class DBManager:
         conn.close()
         return {"code": 200, "msg": "Successfully", "error": False, "result": result}
 
-    def create_base(self, script_path: str) -> None:
-        conn, cur = self.connect_to_db()
-        cur.executescript(open(script_path).read())
-        conn.commit()
-        conn.close()
-
-
-db_manager = DBManager(default_path=settings.DB_PATH)
+db_manager = DBManager(default_path=DB_PATH)
     

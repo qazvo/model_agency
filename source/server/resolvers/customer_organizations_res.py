@@ -1,8 +1,3 @@
-import sys
-
-sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
-sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
-
 from database.db_manager import db_manager
 
 from models_db import customer_organizations
@@ -18,10 +13,10 @@ def get_all() -> dict:
     return res
 
 def new(customer_organization: customer_organizations) -> dict:
-    res = db_manager.execute(query="""INSERT INTO customer_organizations(id, name, country_id, contact_details, inn, confirmed) 
-                                       VALUES(?, ?, ?, ?, ?, ?) 
+    res = db_manager.execute(query="""INSERT INTO customer_organizations(name, country_id, contact_details, inn, confirmed) 
+                                       VALUES(?, ?, ?, ?, ?) 
                                        RETURNING id""", 
-                              args=(customer_organization.id, customer_organization.name, customer_organization.country_id, customer_organization.contact_details, customer_organization.inn, customer_organization.confirmed))
+                              args=(customer_organization.name, customer_organization.country_id, customer_organization.contact_details, customer_organization.inn, customer_organization.confirmed))
     return res
 
 def update(customer_organization: customer_organizations) -> dict:

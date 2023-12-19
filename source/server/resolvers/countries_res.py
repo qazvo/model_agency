@@ -1,8 +1,3 @@
-import sys
-
-sys.path.append("D:/Program/Programing/Projects/model_agency/source/server/database")
-sys.path.append("D:/Program/Programing/Projects/model_agency/source/server")
-
 from database.db_manager import db_manager
 
 from models_db import countries
@@ -18,10 +13,10 @@ def get_all() -> dict:
     return res
 
 def new(country: countries) -> dict:
-    res = db_manager.execute(query="""INSERT INTO countries(id, shortname, name) 
-                                       VALUES(?, ?, ?) 
+    res = db_manager.execute(query="""INSERT INTO countries(shortname, name) 
+                                       VALUES(?, ?) 
                                        RETURNING id""", 
-                              args=(country.id, country.shortname, country.name))
+                              args=(country.shortname, country.name))
     return res
 
 def update(country: countries) -> dict:

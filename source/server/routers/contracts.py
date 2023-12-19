@@ -1,10 +1,5 @@
 import fastapi
 
-import sys
-
-sys.path.append("D:/Program/Programing/Projects/model_agency/source")
-sys.path.append("D:/Program/Programing/Projects/model_agency")
-
 from models_db import contracts
 from resolvers import contracts_res
 

@@ -1,10 +1,5 @@
 import fastapi
 
-import sys
-
-sys.path.append("D:/Program/Programing/Projects/model_agency/source")
-sys.path.append("D:/Program/Programing/Projects/model_agency")
-
 from models_db import roles
 from resolvers import roles_res
 
